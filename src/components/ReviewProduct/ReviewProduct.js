@@ -1,7 +1,7 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-const ReviewProduct = ({product}) => {
+const ReviewProduct = ({product,handleRemoveItem}) => {
     const { name, price, shipping, quantity, img } = product;
   return (
     <div className='mb-4 p-1 border-[1px] flex rounded'>
@@ -22,7 +22,9 @@ const ReviewProduct = ({product}) => {
       </div>
       <div className='flex justify-end items-center ml-auto mr-5 cursor-pointer active:scale-95'>
         <div className='w-10 h-10 bg-[] flex justify-center items-center rounded-full bg-red-100'>
-          <FontAwesomeIcon className='text-[#EB5757]' icon={faTrashAlt} />
+          <button onClick={() => handleRemoveItem(product)}>
+            <FontAwesomeIcon className='text-[#EB5757]' icon={faTrashAlt} />
+          </button>
         </div>
       </div>
     </div>
